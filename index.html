@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body>
+  <div class="container h-screen border border-black flex justify-center flex-col text-center"> 
+    <div class="medio border h-20 flex justify-center"> 
+        <button type="button" 
+        class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
+            onclick="iniciarJuego()">iniciar juego 
+        </button>
+        <button type="button"
+            class="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
+            onclick="estadísticas()"> estadísticas
+        </button>
+    </div>
+    <div id="jocPenjat" class="mt-20"></div>
+    <div id="abecedario"></div>
+  </div>
+  <script src="ahorcado.js"></script>
+
+</body>
+</html>
