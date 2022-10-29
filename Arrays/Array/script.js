@@ -26,7 +26,7 @@ fetch("data/pokemon.json")
     dades.forEach(pokemon=>{
         let pok = [pokemon.id, pokemon.name, pokemon.height,pokemon.img];
         arrayPokemons.push(pok);
-        //He creado un array de 3 dimensiones.
+        //He creado un array de 3 dimensiones. Cuidado.
         pokemon.type.forEach(type=>{
             if(!arrayLabels.includes(type)){
                 arrayLabels.push(type);
@@ -103,18 +103,22 @@ function orderList(tipoOrden){
     printList(dades);
 }
 
-
-
 //Calcula media
 function calcMitjana(){//en ejemplo calcula media de peso
     //toFixed(2)//para que coja sólo 2 decimales
-    
-	for(let i = 0; i < arrayPokemons.length;i ++){
-		sumaPesos = sumaPesos + arrayPokemons[2];
+    let contador = 0;
+    let newPeso = 0;
+    let mediaPeso = 0;
 
-	}
-	console.log(sumaPesos);
-
+	arrayPokemons.forEach(pokemon=>{
+        newPeso = pokemon[2].substring(0,4);
+        newPeso = Number.parseFloat(newPeso);
+		sumaPesos = sumaPesos + newPeso;  
+		contador = contador + 1;
+	})
+    document.getElementById("media"); 
+    mediaPeso = (sumaPesos/contador).toFixed(2);
+    media.innerHTML = mediaPeso;
 }
 
 //Mostrar gráfico
