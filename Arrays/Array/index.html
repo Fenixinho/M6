@@ -11,22 +11,21 @@
     <!--Es recomendable ponerlo abajo. Defer se utiliza para q no se cargue el script hasta que esté cargada la página-->
     
     
-    <title>Pokemons</title>
+    <title>Pokemon</title>
 </head>
 <body>
     
-    <div class="ml-40 container h-screen border border-black border-4 flex justify-center flex-col text-center"> 
+    <div class="ml-40 container h-screen border-black border-4 border-black border-4 flex justify-center flex-col text-center"> 
         <div class="antialiased sans-serif bg-indigo-100 h-screen">
 	
             <div class="container mx-auto py-6 px-4">
-                <h1 class="text-3xl py-4 border-b mb-10">Pokemons</h1>
-                <br>
-                <br>
-                <div> <button onclick="calcMitjana()">El peso medio de Pokemon es: <p id="media"></p></button></div>
+                <h1 class="text-3xl py-4 border-b mb-10">Pokemon</h1>
+               
+                <!-- <div> <button onclick="calcMitjana()">El peso medio de Pokemon es: <p id="media"></p></button></div> -->
             
 
                 <!--Gráfico-->
-                <div class="justify-center">                
+                <div class="flex justify-center">                
                     <div class="chart-container" style="position: relative; width:700px">
                         <canvas id="myChart"></canvas>
                     </div>
@@ -64,13 +63,13 @@
             </div>
            <!--Botones-->
             <div class="justify-center select-none flex">
-                <button class="py-2 px-4 shadow-md no-underline rounded-full bg-blue text-white font-sans font-semibold text-sm border-blue btn-primary hover:text-white hover:bg-blue-light focus:outline-none active:shadow-none mr-2" onclick="refresh()">Refr</button>
+                <button class="py-2 px-4 shadow-md no-underline rounded-full bg-blue text-white font-sans font-semibold text-sm border-blue btn-primary hover:text-white hover:bg-blue-light focus:outline-none active:shadow-none mr-2" onclick="showTable()">Tabl</button>
                 <button class="py-2 px-4 shadow-md no-underline rounded-full bg-orange text-white font-sans font-semibold text-sm border-orange btn-primary hover:text-white hover:bg-orange-light focus:outline-none active:shadow-none mr-2" onclick="orderList('Asce')">Asce</button>
                 <button class="py-2 px-4 shadow-md no-underline rounded-full bg-red text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none"onclick="orderList('Desc')">Desc</button>
             </div>
             <div class="justify-center flex mt-1">
               <button class=" flex py-2 px-4 shadow-md no-underline rounded-full bg-black text-white font-sans font-semibold text-sm border-black btn-primary hover:text-white hover:bg-black-light focus:outline-none active:shadow-none"onclick="showGraph()">Graf</button>
-              <button class=" flex ml-2 py-2 px-4 shadow-md no-underline rounded-full bg-yellow-500 text-white font-sans font-semibold text-sm border-black btn-primary hover:text-white hover:bg-black-light focus:outline-none active:shadow-none"onclick="showTable()">Tabl</button>
+              <button class=" flex ml-2 py-2 px-4 shadow-md no-underline rounded-full bg-yellow-500 text-white font-sans font-semibold text-sm border-black btn-primary hover:text-white hover:bg-black-light focus:outline-none active:shadow-none"onclick="calcMitjana()">Medi</button>
             </div>    
         </div>           
     </div>

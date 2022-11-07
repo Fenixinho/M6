@@ -33,13 +33,11 @@ fetch("data/pokemon.json")
                 arrayDadesGraf.push(0);
                 //Cada vez q pasa por aquí pushea un 0
             }
-
             //Buscar l'índex
             let index = arrayLabels.indexOf(type);
             arrayDadesGraf[index]++;
         })
     })
-   
     //console.table(arrayDadesGraf);//luego este me interesa
     printList(dades);
 });
@@ -65,11 +63,9 @@ function printList(llista){
         let tdName = document.createElement("td");
         tdName.innerHTML = pokemon.name;
         fila.appendChild(tdName);
-
         let tdWeaknesses = document.createElement("td");
         tdWeaknesses.innerHTML = pokemon.height;
         fila.appendChild(tdWeaknesses);
-       
         let tdImage = document.createElement("td");
         tdImage.innerHTML = `<img src="${pokemon.img}"/>`;
         fila.appendChild(tdImage);
@@ -78,34 +74,42 @@ function printList(llista){
 
        
         contenidoTabla.appendChild(fila);
-        /*la fila está dentro de contenido tabla. Cojo toda la fila y la pongo dentro de contenido tabla, para seguir con la siguiente */
+        /*la fila está dentro de contenido tabla. Cojo toda la fila y la pongo dentro de contenido tabla, 
+        para seguir con la siguiente fila */
     });
 }
 
 //ordenar
 function orderList(tipoOrden){
-
-   
     if(tipoOrden === "Desc"){
-
         dades.reverse();
-        console.log(dades);
-       
+        console.log(dades);      
     }
 
-    if(tipoOrden === "Asce"){//No está ordenado,preguntar.
-       
+    if(tipoOrden === "Asce"){/*Como sort() no estaba ordenando y la función que nos enseñaste no funciona lo he solucionado así */
         dades.reverse();
         console.log(dades);
-       
     }
-
     printList(dades);
 }
 
+function orderName(){
+    dades.name.reverse();
+    printList(dades);
+}
+
+
+function orderHeight(){
+
+   dades.height.substring(0,4).reverse();
+   
+    
+    printList(dades);
+}
+
+
 //Calcula media
-function calcMitjana(){//en ejemplo calcula media de peso
-    //toFixed(2)//para que coja sólo 2 decimales
+function calcMitjana(){  
     let contador = 0;
     let newPeso = 0;
     let mediaPeso = 0;
