@@ -9,20 +9,31 @@
     
 </head>
 <body>
-  <div class="container h-screen border border-black flex justify-center flex-col text-center"> 
-    <div class="medio border h-20 flex justify-center"> 
-        <button type="button" 
-        class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
-            onclick="iniciarJuego()">iniciar juego 
-        </button>
-        <button type="button"
-            class="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
-            onclick="estadísticas()"> estadísticas
-        </button>
-    </div>
-    <div id="jocPenjat" class="mt-20"></div>
-    <div id="abecedario"></div>
+  <div id="total" class="h-8 w-auto"> </div>
+  <div class="container h-screen border border-black flex justify-center flex-col text-center h-scrren"> 
+        <div class="medio border h-20 flex justify-center"> 
+            
+            <button type="button" 
+            class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
+                onclick="iniciarJuego()">iniciar juego 
+            </button>
+            <button type="button"
+                class="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
+                onclick="estadisticas()"> estadísticas
+            </button>
+        </div>
+        
+        <div id="abecedario"></div>
+        <div id="jocPenjat" class="mt-20"></div>
+        <!-- <img src="/img/" id="imatgePenjat" /> -->
+        <div id="lletresUtilitzades">Letras Falladas:</div>
+        <div class="imagen" class="h-screen">
+          <img id="img" class="hidden w-3/6 pr-40" src="./img/penjat_0.png" alt="">
+      </div>
   </div>
+  <div class="h-8 w-20 border border-black" id="jugadas"></div>
+  <div class="h-8 w-20 border border-black" id="ganadas"></div>
+  <div class="h-8 w-20 border border-black" id="perdidas"></div>
   <script src="ahorcado.js"></script>
 
 </body>

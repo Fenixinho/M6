@@ -56,10 +56,9 @@ class Modul{
         this.horas = horas;
     }
     toString(){
-        return `-   MP${Modul.num}. ${Modul.nombre}. ${Modul.horas}.horas`;
+        return `-   MP${this.num}. ${this.nombre}. ${this.horas}.horas`;
     }
 }
-
 
 /*____________________________________________________________________________ */
 
@@ -115,9 +114,7 @@ function afegirModul(){
 
     //Printem la llista
     printLlistat(llistatCicles);
-
-
-    
+   
     netejarFormularis();
 }
 
@@ -128,7 +125,7 @@ function printLlistat (llistat){
         str += element.toString(index);
     });
 
-    document.getElementById("llistat").innerHTML=str;//pregunta sobre esto tb
+    document.getElementById("llistat").innerHTML=str;
 }
 
 //Funció per actualitzar el selector de cicles cada vegada que afegim un cicle
@@ -145,15 +142,9 @@ function actualitzarSelector(){
 
 //Funció per eliminar un cicle
 function removeCicle(i){
-    document.getElementById("cicle_nom").value = "";
-    document.getElementById("cicle_categoria").value ="";
-    document.getElementById("cicle_alumnes").value = "";
-    document.getElementById("cicle_abr").value = "";
-
-    llistatCicles[i].appendChild.value = "";
+    
+    llistatCicles.splice(i,0);
     //Igualo su valor a 0 pero tendría que hacer un innerchild. No estoy seguro, preguntar
-
-
 }
 
 //Funció per editar un cicle
