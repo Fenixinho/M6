@@ -138,6 +138,7 @@ function retry() {
 function ahorcadoImg(intentos) {
     if(intentos!=6){
         let image = document.getElementById('img');
+        //así inserto la imagen desde JS
         image.src = './img/penjat_'+intentos+'.png';
     }else{
         alert('Perdiste!La próxima será mejor ;)');
