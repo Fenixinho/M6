@@ -16,7 +16,9 @@ let prev = $('.prev');
 $(document).ready(function(){
     $.get("./data/data.json", function(data){
        projectes = data.projectes;
-       showProjecte(projectes[i]);      
+       showProjecte(projectes[i]); 
+       
+       
     });
 
 //2. Fes una funció que mostri la informació a la pantalla. Que lo meta en pantalla por html
@@ -39,9 +41,10 @@ function showProjecte() {
         colorLletres = (projecte.colorFons == "#ffffff") ? "#000000" : "#ffffff";
         document.documentElement.style.setProperty("--colorFons", colorFons);
         document.documentElement.style.setProperty("--colorLletres", colorLletres);
-        
-    }
-
+        numSlider.html(getNumSlider());
+        nomProjecte.html(projecte.titol);
+        aboutTextContent.html(projecte.about);
+        }    
 }
 
 //Funció per calcular l'amplada en el cas que la posició sigui center
