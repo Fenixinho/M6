@@ -1,19 +1,27 @@
 let projectes;
 let i = 0;
+let colorFons = "";
+let colorLletres = "";
+let projecteContainer = $('#projecteContainer');
+let numSlider = $('.numSlider');
+let nomProjecte = $('.nomProjecte');
+let aboutTextContent = $('.aboutTextContent');
+let aboutTitle = $('.aboutTitle');
+let next = $('.next');
+let prev = $('.prev');
+
 
 //1. Crea una funció que llegeixi tots els projectes de l'arxiu data/projectes.json
 
 $(document).ready(function(){
     $.get("./data/data.json", function(data){
        projectes = data.projectes;
-       showProjecte(projectes[i]);
+       showProjecte(projectes[i]);      
     });
- });
 
 //2. Fes una funció que mostri la informació a la pantalla. Que lo meta en pantalla por html
 
 function showProjecte() {
-
     /* así accedo a  los elementos img que están dentro de el id projecteContainer  y le agrego la imagen que quiero*/
     $("#projecteContainer img").attr("src", projectes[i].img);
 
@@ -24,32 +32,39 @@ function showProjecte() {
 
     if(projectes[i].position == "center") {
 
-        //saco el ancho de la imagen y lo llevo a la función que calcula el porcentaje
-        
+        let projecte = projectes[i];
+        //saco el ancho de la imagen y lo llevo a la función que calcula el porcentaje   
         $("#projecteContainer img").css("width", calcWidth(projectes[i].mida));
-       
-    }
-
-    if (projectes[i].position == "fullScreen") {
-        $(":root").css("--colorFons", "black");
-    }
-
-    if (projectes[i].position == "fullWidth") {
-        $(":root").css("--colorFons", "black");
-    }
-
-    if (projectes[i].position == "fullHeight") {
-        $(":root").css("--colorFons", "black");
+        colorFons = projecte.colorFons;
+        colorLletres = (projecte.colorFons == "#ffffff") ? "#000000" : "#ffffff";
+        document.documentElement.style.setProperty("--colorFons", colorFons);
+        document.documentElement.style.setProperty("--colorLletres", colorLletres);
+        
     }
 
 }
 
 //Funció per calcular l'amplada en el cas que la posició sigui center
- function calcWidth(width) {
-    let array = width.split("/");
-    let fraccion = array[0];
-    let fraccion2= array[1];
+    function calcWidth(width) {
+        let array = width.split("/");
+        let fraccion = array[0];
+        let fraccion2= array[1];
 
-    return ((fraccion/fraccion2)*100) + '%';
-}
+        return ((fraccion/fraccion2)*100) + '%';
+    }
 
+    //Función para calcular el número del slider
+    function getNumSlider(){
+        return (i+1) + "/" + projectes.length;
+    }
+    //event listener para siguiente
+    next.click(function(){
+        i = (i+1)%projectes.length;
+        showProjecte();
+    });
+    //event para ir atrás
+    prev.click(function(){
+        i = (i-1+projectes.length)%projects.length;
+        showProjecte();
+    });
+});

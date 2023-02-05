@@ -67,3 +67,62 @@ body{
 .center{
     height: auto;
 }
+
+.prev, .next {
+    position: absolute;
+    top: 0px;
+    width: 50%;
+    cursor: pointer;
+    height: 100vh;
+}
+
+.prev {
+    left: 0px;
+}
+
+.next {
+    right: 0px;
+}
+
+/* Posición de las imágenes */
+.center {
+    width: calc(100% / 12 * var(--width));
+    margin: 0 auto;
+}
+
+.aboutText {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.8);
+    visibility: hidden;
+}
+
+/* About text */
+.aboutTextContent {
+    font-size: 13px;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  /* fade In face Out */
+  .fadeIn {
+      animation-name: fadeIn;
+      animation-duration: 3s;
+  }
+  
+  .fadeOut {
+      animation-name: fadeOut;
+      animation-duration: 3s;
+  }
