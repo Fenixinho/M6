@@ -1,5 +1,5 @@
 let projectes;
-let i = 1;
+let i = 0;
 
 //1. Crea una funció que llegeixi tots els projectes de l'arxiu data/projectes.json
 
@@ -44,12 +44,12 @@ function showProjecte() {
 
 }
 
-
 //Funció per calcular l'amplada en el cas que la posició sigui center
-/* function calcWidth(width) {
+ function calcWidth(width) {
     let array = width.split("/");
     let fraccion = array[0];
     let fraccion2= array[1];
 
     return ((fraccion/fraccion2)*100) + '%';
-} */
+}
+
