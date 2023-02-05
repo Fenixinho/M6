@@ -67,7 +67,7 @@ function showProjecte() {
     });
     //event para ir atrás
     prev.click(function(){
-        i = (i-1+projectes.length)%projects.length;
+        i = (i-1+projectes.length)%projectes.length;
         showProjecte();
     });
 });
