@@ -1,5 +1,11 @@
+body {
+  background-color: #191414;
+}
+
 :root{
   --green: #1db954;
   --black: #191414;
   --white: #ffffff;
 }
+
+

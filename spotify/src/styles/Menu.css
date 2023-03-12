@@ -31,5 +31,5 @@ ul li a:hover{
     padding: 20px 80px;
     align-items: center;
     color: red;
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
 }
