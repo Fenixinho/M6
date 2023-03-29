@@ -7,7 +7,6 @@ import  { useContext, useState } from 'react';
 import { TokenContext } from './Context';
 import { loginUri } from '../spotifyKeys';
 
-
 function Menu () {
     
   const[token, setToken] = useContext(TokenContext);
@@ -17,7 +16,6 @@ function Menu () {
     setToken('');
     
   }
-  
       return (
         <div className="navigationContainer">
             <nav>
@@ -37,15 +35,9 @@ function Menu () {
             </div>
         </div>
         
-        
-
       );
-      
       
     }
 
-   
-
-  
   export default Menu;
   

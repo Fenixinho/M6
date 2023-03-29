@@ -5,9 +5,8 @@ import App from './components/App';
 import Context from './components/Context';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import PrimeraPagina from './pages/PrimeraPagina';
-import SecondPage from './pages/SecondPage';
-
+import Search from './pages/Search';
+import Detail from './pages/Detail';
 
 
 
@@ -20,10 +19,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   { path: "/",
     element: <App/> },
-  { path: "/primera",
-    element: <PrimeraPagina/> },
-  { path: "/segona",
-    element: <SecondPage/> }
+  { path: "search",
+    element: <Search/> },
+  { path: "search/detalle/:id",
+      element: <Detail/>}
+       
 ]);
 /*Aquí le digo a react qué voy a tener dentro de mi aplicación */
 
