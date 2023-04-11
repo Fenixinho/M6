@@ -6,14 +6,18 @@ export const TokenContext = createContext();
 const Context = ({ children }) => {
   const [token, setToken] = useState(null);
   useEffect(() => {
+    /*Recojo el valor del fragmento de identificador de ubicación de la URL actual del navegador 
+    en el momento en que se ejecuta esta línea de código. */
     let hash = window.location.hash;
-    console.log(hash);
     if (hash) {
+      //saco token
       const tokenL = hash.substring(1).split("&")[0].split("=")[1];
-      console.log('este es el token',token);
       setToken(tokenL);
+      //vaciamos
       window.location.hash = "";
+      //para que no aparezca en la barra del navegador le doy este valor "nulo"
       window.localStorage.setItem("token", tokenL);
+      //dejo en localStorage el toquen
     }
   });
 
