@@ -45,7 +45,9 @@ function Detail () {
 
       function handleClick(e){
         /*botón derecho (2), entonces se le de al objeto MenuInfo las modificaciones del evento click */
-         if (e.nativeEvent.button === 2) {
+        console.log("click derecho");
+
+        if (e.nativeEvent.button === 2) {
           setMenuInfo({show: true, 
                        posX: e.pageX, 
                        posY:e.pageY, 
@@ -55,6 +57,7 @@ function Detail () {
       }
 
       function handleLeftClick(e){
+        console.log("click izquierdo");
         setMenuInfo({show: false, 
           posX: e.pageX, 
           posY:e.pageY, 
@@ -78,10 +81,9 @@ function Detail () {
                 <div className="contenedor">
                   {album.tracks.items.map((track, index) => (
                       <><div className="AlbumArtista" key={index}>
-                      <h5>{track.name}</h5>
+                      <h5 onClick ={handleLeftClick} onContextMenu={handleClick}  data-key={track.id}>{track.name}</h5>
                     </div>
-                    <div onClick ={handleLeftClick} onContextMenu={handleClick} key={track.id} data-key={track.id}>
-                    </div></>
+                   </>
                       
                   ))}
                 </div>
