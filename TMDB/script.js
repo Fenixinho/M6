@@ -23,6 +23,22 @@ let favoritas =  [];
 watchList = [];
 let moviesResult = document.getElementById("moviesResult");
 
+async function showWatch() {
+    moviesResult.innerHTML="";
+    try {
+        let url = `https://api.themoviedb.org/3/account/${keys.account_id}/watchlist/movies?api_key=${keys.api_key}&language=en-US&session_id=${keys.session_id}&sort_by=created_at.asc&page=1`;
+        let results = await fetch(url);
+        let data = await results.json();
+        console.log(data.results);
+        watchList = data.results;
+        data.results.forEach(e =>{
+            const checkFav = (element) => element.id === e.id;
+            let favBool = favoritas.some(checkFav);
+            printMovie(e,favBool,true);})
+    } catch (error) {
+        console.log(err);
+    }
+}
 
 async function setFav(id, favBool){
     moviesResult.innerHTML="";
@@ -47,23 +63,6 @@ async function setFav(id, favBool){
     } catch (error) {
         console.log(err);
     } 
-}
-
-async function showWatch() {
-    moviesResult.innerHTML="";
-    try {
-        let url = `https://api.themoviedb.org/3/account/${keys.account_id}/watchlist/movies?api_key=${keys.api_key}&language=en-US&session_id=${keys.session_id}&sort_by=created_at.asc&page=1`;
-        let results = await fetch(url);
-        let data = await results.json();
-        console.log(data.results);
-        watchList = data.results;
-        data.results.forEach(e =>{
-            const checkFav = (element) => element.id === e.id;
-            let favBool = favoritas.some(checkFav);
-            printMovie(e,favBool,true);})
-    } catch (error) {
-        console.log(err);
-    }
 }
 
 async function setWatch(id, watchBool){
