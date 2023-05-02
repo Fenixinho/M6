@@ -132,10 +132,10 @@ async function searchMovies(query,page){
 
 
         data.results.forEach( movie => {
-            const checkFilmFav = (element) => element.id ===  movie.id;
             const checkFilmWatch = (element) => element.id ===  movie.id;
-            let favBool = data2.results.some(checkFilmFav);
+            const checkFilmFav = (element) => element.id ===  movie.id;
             let watchBool = data3.results.some(checkFilmWatch);
+            let favBool = data2.results.some(checkFilmFav);
             console.log(watchBool);
             printMovie(movie,favBool,watchBool)
         });
