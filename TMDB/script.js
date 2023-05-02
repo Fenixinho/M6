@@ -118,7 +118,7 @@ async function searchMovies(query,page){
         let data = await results.json();
         pages.total_pages = data.total_pages;
         console.log('resultado búsqueda ',data);
-        //busca favoritas
+        //busca las peliculas favoritas
        
         let url2 = `https://api.themoviedb.org/3/account/${keys.account_id}/favorite/movies?api_key=${keys.api_key}&session_id=${keys.session_id}`;
         let favMovie = await fetch(url2);

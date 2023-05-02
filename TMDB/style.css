@@ -89,8 +89,9 @@ main{
 }
 
 .movie .buttons{
-    position: absolute;
     bottom: 0px;
+    position: absolute;
+    
 }
 
 .buttons i {
@@ -100,9 +101,9 @@ main{
 }
 
 .movie h3 {
-    font-size: 20px;
-    margin-bottom: 45px;
     margin-top: 10px;
+    margin-bottom: 45px;
+    font-size: 20px;
 }
 
 .iconActive,
