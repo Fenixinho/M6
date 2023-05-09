@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+    <app-header></app-header>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list [inset]="true" class="listProductes">
+    <ion-item-sliding *ngFor="let producte of recojoProductos">
+        <ion-item  class="itemProducte" >
+          <ion-label>{{producte.name}}</ion-label>
+          <ion-button class="boton" slot="end">Buy</ion-button>
+        </ion-item> 
+        <ion-item-options class="botones">
+          <ion-item-option>Favorite</ion-item-option>
+          <ion-item-option color="danger" >Delete</ion-item-option> <!-- No estoy pudiendo poner la función click xq me da error -->
+      </ion-item-options>
+    </ion-item-sliding>   
+  </ion-list>
+</ion-content>
+<ion-footer><app-footer></app-footer></ion-footer>
