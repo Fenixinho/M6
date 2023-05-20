@@ -9,7 +9,7 @@ export class StorageService {
     this.init();
   }
   async init(){
-   /*  this.storage = await this.storage.create(); */
+     /* this.storage = await this.storage.create();  */
   }
 
   public async set(key: string, value: any){

@@ -40,5 +40,9 @@ export class DetallPage implements OnInit {
     })
   }
 
+  agregarAlCarrito() {
+
+  }
+
 }
 

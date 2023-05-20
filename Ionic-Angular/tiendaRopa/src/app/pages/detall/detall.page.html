@@ -1,13 +1,33 @@
 <app-header></app-header>
-  <ion-content [fullscreen]="true">
+ <!--  <ion-content [fullscreen]="true">
     <ion-label>
       <ion-label>{{producto.name}}</ion-label>
       <ion-img src="https://tonigomila.cat/shop/api/images/products/{{producto.id}}/{{producto.id_default_image}}?ws_key={{key}}" alt='imagen'/>
       <ion-label>{{producto.description}}</ion-label>
     </ion-label>
    
-  </ion-content>
+  </ion-content> -->
 
+
+
+
+
+
+<ion-content>
+  <ion-card>
+    <ion-img src="https://tonigomila.cat/shop/api/images/products/{{producto.id}}/{{producto.id_default_image}}?ws_key={{key}}" alt='imagen'/>
+    <ion-card-header>
+      <ion-card-title>{{producto.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{producto.description}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+    <ion-button expand="full" (click)="agregarAlCarrito()">Agregar al Carrito</ion-button>
+</ion-footer>
 
 
 <app-bottom-vavigation></app-bottom-vavigation>
