@@ -1,31 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
-  storage: any;
 
-  constructor(private StorageService: StorageService) { }
-
-  
-  public async obtenerCarrito() {
-    // Obtener el carrito actual
-    let carrito = JSON.parse(await this.get('carrito') || '[]');
-
-    return carrito;
+  constructor(private storage: Storage) {
+    this.init();
   }
 
-  public async vaciarCarrito() {
-    // Vaciar el carrito
- await this.remove('carrito');
+  async init(){
+    this.storage = await this.storage.create();
   }
 
   public async set(key: string, value: any){
     await this.storage.set(key, value);
   }
-   
+
   public async get(key:string){
     return await this.storage.get(key);
   }
@@ -37,5 +29,6 @@ export class StorageService {
   public async clear(){
     await this.storage.clear();
   }
+
 }
 

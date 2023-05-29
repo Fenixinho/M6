@@ -5,9 +5,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">carrito</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <ion-list [inset]="true" class="listaCarrito">
+    <ion-item-sliding *ngFor="let producto of productosCarrito">
+      <ion-label>
+        <ion-label>{{producto.name}}</ion-label>
+        <ion-label>{{producto.id_default_image}}</ion-label>
+        <ion-label>{{producto.price}}</ion-label>
+      </ion-label>
+    </ion-item-sliding>
+
+
