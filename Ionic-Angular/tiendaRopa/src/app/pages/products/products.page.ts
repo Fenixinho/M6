@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
 import { HeaderComponent } from 'src/app/components/header/header.component';
-import { StorageService } from 'src/app/services/storage.service';
 import { BottomVavigationComponent } from 'src/app/components/bottom-vavigation/bottom-vavigation.component';
 import { DetallPage } from '../detall/detall.page';
 import { RouterLink } from '@angular/router';
@@ -16,7 +15,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule,HeaderComponent,BottomVavigationComponent,DetallPage,RouterLink]
+  imports: [IonicModule, CommonModule, FormsModule,HeaderComponent,BottomVavigationComponent,RouterLink]
 })
 export class ProductsPage implements OnInit {
   //Llave estática para no complicarme
@@ -35,7 +34,7 @@ export class ProductsPage implements OnInit {
 
   getProductos() {
     this.apiService.getProducts().subscribe((response:any) => {
-      console.log(response.products); 
+      /* console.log(response.products);  */
       this.recojoProductos = response.products;
       
     })

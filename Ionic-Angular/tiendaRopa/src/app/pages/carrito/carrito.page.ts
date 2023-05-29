@@ -18,3 +18,5 @@ export class CarritoPage implements OnInit {
   }
 
 }
+
+//necesitaré el get para recuperar o recoger lo que se ha "mandado" desde la página de detall
