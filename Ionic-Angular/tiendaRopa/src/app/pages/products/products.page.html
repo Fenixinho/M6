@@ -2,24 +2,26 @@
     <app-header></app-header>
 
 
-<ion-content [fullscreen]="true">
-  <ion-list [inset]="true" class="listProductes">
-    <ion-item-sliding *ngFor="let producte of recojoProductos">
-        <ion-item routerLink="/detall/{{producte.id}}" class="itemProducte">
-         <ion-label>
-            <ion-label>{{producte.name}}</ion-label>
-            <ion-img src="https://tonigomila.cat/shop/api/images/products/{{producte.id}}/{{producte.id_default_image}}?ws_key={{key}}" alt='imagen'/>
-           <!--  <ion-label>{{producte.description}}</ion-label> -->
-          </ion-label>
-          <ion-button class="boton" slot="end">Buy</ion-button>
-        </ion-item> 
-        <ion-item-options class="botones">
-          <ion-item-option class="btn">Favorite</ion-item-option>
-          <ion-item-option class="btn" color="danger" (click)="remove(producte)">Delete</ion-item-option> <!-- No estoy pudiendo poner la función click xq me da error -->
-      </ion-item-options>
-    </ion-item-sliding>   
-  </ion-list>
-</ion-content>
+    <ion-content [fullscreen]="true">
+      <ion-row>
+        <ion-card *ngFor="let producte of recojoProductos" class="product-card" routerLink="/detall/{{producte.id}}">
+          <ion-img [src]="'https://tonigomila.cat/shop/api/images/products/' + producte.id + '/' + producte.id_default_image + '?ws_key=' + key" alt="imagen"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ producte.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Aquí puedes agregar más detalles del producto si lo deseas -->
+            <p>Precio: {{ producte.price }}</p>
+          </ion-card-content>
+          <ion-row>
+            <ion-col>
+              <ion-button class="boton" slot="end">Comprar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-row>
+    </ion-content>
+    
 <app-bottom-vavigation></app-bottom-vavigation>
 
 
