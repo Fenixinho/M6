@@ -43,6 +43,8 @@ export class DetallPage implements OnInit {
   async agregarAlCarrito(productoId: any) {
     // el carrito actual, recoge lo que haya o se crea vacío si no hay nada
     let carrito = await this.storageService.get('carrito');
+    console.log('carrito inicial:',carrito);
+    
 
      if (carrito == null || carrito.length == 0) {
       await this.storageService.set('carrito', [
@@ -54,6 +56,7 @@ export class DetallPage implements OnInit {
 
     } else {
       let posicionEnCarrito = this.identificarProductoEnCarrito(carrito);
+      console.log('esta es la posicion en el carrito',posicionEnCarrito);
 
       if (posicionEnCarrito === -1) {
 
@@ -64,8 +67,9 @@ export class DetallPage implements OnInit {
 
       } else {
         carrito[posicionEnCarrito].cantidad++;
+
       }
-      await this.storageService.set('carrito', carrito);
+      
     }
     setTimeout(async () => { 
       console.log(await this.storageService.get('carrito'))

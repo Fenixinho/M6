@@ -34,7 +34,7 @@ export class ProductsPage implements OnInit {
 
   getProductos() {
     this.apiService.getProducts().subscribe((response:any) => {
-      /* console.log(response.products);  */
+     
       this.recojoProductos = response.products;
       
     })
@@ -46,9 +46,5 @@ export class ProductsPage implements OnInit {
       this.recojoProductos.splice(index, 1);
       //borro pero no del prestashop (base de datos)
     }
-
-    
-  
   } 
-
 }
