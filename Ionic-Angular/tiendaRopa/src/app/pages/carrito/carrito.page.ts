@@ -18,6 +18,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 export class CarritoPage implements OnInit {
 
   productosCarrito : any = {};
+  productosApi : any = [];
   key : string = "JEWNJ26VXU8GXS11K2YSCNJTME1WHUVL";
 
   constructor(private storageService: StorageService, private apiService: ApiService) { }
@@ -28,23 +29,17 @@ export class CarritoPage implements OnInit {
     //clave valor, recuerda
     console.log('productos id',this.productosCarrito);
 
-        const carritoId = [];
-
-        for (const obj of this.productosCarrito) {
-          carritoId.push(obj.productoId);
-        }
-        console.log('araryId:', carritoId);
-        carritoId.forEach((id: any) => {
-
-          this.apiService.getProduct(id).subscribe((product: any) => {
-          console.log('Producto con ID', id, ':', product);
+        this.productosCarrito.forEach((itemCarrito: any) => {
+          this.apiService.getProduct(itemCarrito.productoId).subscribe((product: any) => {
+            console.log(product)
+            this.productosApi.push(product.products[0]);
           }); 
         });
   }
 
   async getProductosCarrito() {
     return await this.storageService.get('carrito');
-    
+
   }
 
   remove(producte:any) {
@@ -55,4 +50,3 @@ export class CarritoPage implements OnInit {
     }
   } 
 }
-
