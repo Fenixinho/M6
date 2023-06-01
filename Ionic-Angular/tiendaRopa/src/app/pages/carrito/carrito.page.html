@@ -1,32 +1,24 @@
 <app-header></app-header>
-
-<!--  <ion-content [fullscreen]="true">
-  <div ngFor="let product of productosCarrito.products">
-    <h1>{{ product.name }}</h1>
-    <p>Precio: {{ product.price }}</p>
-    <p>Descripción: {{ product.description }}</p>
-  </div> -->
-
-  <ion-content [fullscreen]="true">
+  <ion-content [fullscreen]="true" class="product-card">
   <ion-list [inset]="true" class="listProductes">
-    <ion-item-sliding *ngFor="let producte of productosApi">
+    <ion-card *ngFor="let producte of productosApi" class="product-card">
          <ion-label>
-            <ion-label>{{producte.name}}</ion-label>
             <ion-img src="https://tonigomila.cat/shop/api/images/products/{{producte.id}}/{{producte.id_default_image}}?ws_key={{key}}" alt='imagen'/>
-           
+            
           </ion-label>
-          <ion-button class="boton" slot="end">Buy</ion-button>
+          <!-- <ion-title>{{producte.name}}</ion-title> -->
+          <!-- <ion-button class="boton" slot="end">Buy</ion-button> -->
+          <ion-button class="btn" color="danger" (click)="remove(producte)">Delete</ion-button>
 
-        <ion-item-options class="botones">
-          <ion-item-option class="btn">Favorite</ion-item-option>
-          <ion-item-option class="btn" color="danger" (click)="remove(producte)">Delete</ion-item-option> <!-- No estoy pudiendo poner la función click xq me da error -->
-      </ion-item-options>
-    </ion-item-sliding>
+         <!-- No estoy pudiendo poner la función click xq me da error -->
+     <!--  </ion-item-options> -->
+    </ion-card>
   </ion-list>
+  <!-- Falta dirigir al formulario una vez se quiere realizar compra -->
+  <ion-footer>
+    <ion-button expand="full" (click)="realizarCompra()" >Realizar compra</ion-button>
+  </ion-footer>
 </ion-content>
-
-
 
 <app-bottom-vavigation></app-bottom-vavigation>
 
-Enviar mensaje a @Marcdingo

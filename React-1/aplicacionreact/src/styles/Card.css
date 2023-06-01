@@ -1,0 +1,25 @@
+.cardContainer{
+    width:300px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.cardImg{
+    width: 100%;
+    height: 200px;
+    object-fit:cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.cardInfo{
+    padding: 20px;
+}
+
+.cardInfo h3{
+    margin: 0px;
+}
+
+.cardInfo p{
+    margin-bottom: 0px;
+}

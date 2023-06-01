@@ -2,22 +2,17 @@
     <app-header></app-header>
 
 
-    <ion-content [fullscreen]="true">
+    <ion-content [fullscreen]="true" class="contenido">
       <ion-row>
         <ion-card *ngFor="let producte of recojoProductos" class="product-card" routerLink="/detall/{{producte.id}}">
-          <ion-img [src]="'https://tonigomila.cat/shop/api/images/products/' + producte.id + '/' + producte.id_default_image + '?ws_key=' + key" alt="imagen"></ion-img>
+          <ion-img [src]="'https://tonigomila.cat/shop/api/images/products/' + producte.id + '/' + producte.id_default_image + '?ws_key=' + key" class="imagen"alt="imagen"></ion-img>
           <ion-card-header>
-            <ion-card-title>{{ producte.name }}</ion-card-title>
+            <ion-card-title class="nombre">{{ producte.name }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <!-- Aquí puedes agregar más detalles del producto si lo deseas -->
             <p>Precio: {{ producte.price }}</p>
           </ion-card-content>
-          <ion-row>
-            <ion-col>
-              <ion-button class="boton" slot="end">Comprar</ion-button>
-            </ion-col>
-          </ion-row>
         </ion-card>
       </ion-row>
     </ion-content>

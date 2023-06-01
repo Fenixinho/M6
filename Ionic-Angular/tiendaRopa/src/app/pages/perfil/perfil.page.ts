@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { BottomVavigationComponent } from 'src/app/components/bottom-vavigation/bottom-vavigation.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
+import { PhotoService } from '../../services/photo.service'
+
 
 @Component({
   selector: 'app-perfil',
@@ -15,9 +17,21 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+  photoBase64 : any = null;
 
-  ngOnInit() {
+  constructor(public photoService: PhotoService) { }
+
+  async addPhotoToGallery() {
+    this.photoBase64 = await this.photoService.addNewToGallery();
+    console.log(this.photoBase64);
+  }
+  
+  saveToStorage() {
+
   }
 
+  ngOnInit() {
+    defineCustomElements(window);
+  }
+  
 }
