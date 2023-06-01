@@ -24,18 +24,8 @@ export class CarritoPage implements OnInit {
 
   constructor(private storageService: StorageService, private apiService: ApiService,private router: Router) { }
 
-  async ngOnInit() {
-
-    this.productosCarrito = await this.getProductosCarrito();
-    //clave valor, recuerda
-    console.log('productos id',this.productosCarrito);
-
-        this.productosCarrito.forEach((itemCarrito: any) => {
-          this.apiService.getProduct(itemCarrito.productoId).subscribe((product: any) => {
-            console.log(product)
-            this.productosApi.push(product.products[0]);
-          }); 
-        });
+  ngOnInit() {
+    this.getProducts();
   }
 
   async getProductosCarrito() {
@@ -43,13 +33,35 @@ export class CarritoPage implements OnInit {
 
   }
 
-  remove(producte:any) {
-    const index = this.productosCarrito.indexOf(producte);
-    if (index > -1) {
-      this.productosCarrito.splice(index, 1);
-      //borro pero no del prestashop (base de datos)
-    }
+  getProductIndex(productId: any) {
+    return this.productosCarrito.findIndex((element : any) => element.productoId == productId);
   }
+
+  async remove(producteId: any) {
+    const index = this.getProductIndex(producteId);
+    this.productosCarrito.splice(index, 1);
+    await this.storageService.set('carrito', this.productosCarrito);
+    setTimeout(() => {
+      this.refreshProducts();
+    }, 500);
+  }
+
+  refreshProducts() {
+    this.productosApi = [];
+    this.productosCarrito= {};
+    this.getProducts();
+  }
+
+  async getProducts() {
+    this.productosCarrito = await this.getProductosCarrito();
+    //clave valor, recuerda
+        this.productosCarrito.forEach((itemCarrito: any) => {
+          this.apiService.getProduct(itemCarrito.productoId).subscribe((product: any) => {
+            this.productosApi.push(product.products[0]);
+          }); 
+        });
+  }
+
   realizarCompra() {
     // Aquí redirigimos al usuario a la página "check-out"
     this.router.navigate(['/check-out']);

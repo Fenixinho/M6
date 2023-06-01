@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { StorageService } from 'src/app/services/storage.service';
+import { Share } from '@capacitor/share';
 
 
 @Component({
@@ -39,13 +40,19 @@ export class DetallPage implements OnInit {
       this.producto.description = this.producto.description.replace('<p>', '').replace('</p>', '');
     })
   }
+  async share(producto: any){
+  await Share.share({
+    title: 'See cool stuff',
+    text: 'Really awesome thing you need to see right meow',
+    url: 'http://ionicframework.com/',
+    dialogTitle: 'Share with buddies',
+  });
+  }
 
   async agregarAlCarrito(productoId: any) {
     // el carrito actual, recoge lo que haya o se crea vacío si no hay nada
     let carrito = await this.storageService.get('carrito');
-    console.log('carrito inicial:',carrito);
     
-
      if (carrito == null || carrito.length == 0) {
       await this.storageService.set('carrito', [
         {
@@ -56,10 +63,7 @@ export class DetallPage implements OnInit {
 
     } else {
       let posicionEnCarrito = this.identificarProductoEnCarrito(carrito);
-      console.log('esta es la posicion en el carrito',posicionEnCarrito);
-
       if (posicionEnCarrito === -1) {
-
         carrito.push({
           productoId: productoId,
           cantidad: 1
@@ -67,8 +71,9 @@ export class DetallPage implements OnInit {
 
       } else {
         carrito[posicionEnCarrito].cantidad++;
-
       }
+
+      await this.storageService.set('carrito', carrito);
       
     }
     setTimeout(async () => { 
@@ -80,4 +85,6 @@ export class DetallPage implements OnInit {
   identificarProductoEnCarrito(carrito : any) {
     return carrito.findIndex((element : any) => element.productoId == this.id);
   }
+  
+
 }

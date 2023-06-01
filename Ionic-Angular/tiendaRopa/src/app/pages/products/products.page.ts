@@ -29,9 +29,6 @@ export class ProductsPage implements OnInit {
     this.getProductos();
     
   }
-  //deckaro de momento aquí la variable para la conexión. Luego ya lo importaré y con un getter que creo en el servicio, consigo la ws_key
- 
-
   getProductos() {
     this.apiService.getProducts().subscribe((response:any) => {
      
@@ -40,11 +37,4 @@ export class ProductsPage implements OnInit {
     })
   }
 
-  remove(producte:any) {
-    const index = this.recojoProductos.indexOf(producte);
-    if (index > -1) {
-      this.recojoProductos.splice(index, 1);
-      //borro pero no del prestashop (base de datos)
-    }
-  } 
 }

@@ -3,17 +3,21 @@
   <ion-card class="product-card">
     <ion-img src="https://tonigomila.cat/shop/api/images/products/{{producto.id}}/{{producto.id_default_image}}?ws_key={{key}}" alt='imagen'/>
     <ion-card-header>
-      <ion-card-title>{{producto.name}}</ion-card-title>
+      <ion-card-title class="nombre">{{producto.name}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p>{{producto.description}}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>
-
-<ion-footer>
-    <ion-button expand="full" (click)="agregarAlCarrito(producto.id)">Agregar al Carrito</ion-button>
-</ion-footer>
+<div class="buttons-container">
+  <ion-button class="boton rounded-button"  (click)="share(producto.name)">
+    <span class="button-inner">compartir</span>
+  </ion-button>
+  <ion-button class="boton rounded-button"  (click)="agregarAlCarrito(producto.id)">
+    <span class="button-inner">Agregar al Carrito</span>
+  </ion-button>
+</div>
 
 
 <app-bottom-vavigation></app-bottom-vavigation>

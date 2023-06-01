@@ -1,3 +1,39 @@
 .product-card {
     background-color: #f8e9e9;
 }
+
+
+.boton {
+    color: #fff; 
+    --ion-color-primary: #5C65E6;
+    width: auto;
+    margin-top: 3px;
+         
+}
+
+.nombre {
+    font-family: 'Moda';
+    font-size: 21px;
+
+}
+
+.rounded-button {
+    border-radius: 20px !important;
+  }
+  
+  .button-inner {
+    border-radius: 20px !important;
+  }
+
+    
+.buttons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1px; 
+ }
+
+ p {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+ }
+  
+  

@@ -6,17 +6,15 @@
             <ion-img src="https://tonigomila.cat/shop/api/images/products/{{producte.id}}/{{producte.id_default_image}}?ws_key={{key}}" alt='imagen'/>
             
           </ion-label>
-          <!-- <ion-title>{{producte.name}}</ion-title> -->
-          <!-- <ion-button class="boton" slot="end">Buy</ion-button> -->
-          <ion-button class="btn" color="danger" (click)="remove(producte)">Delete</ion-button>
+          
+          <ion-button class="btn" color="danger" (click)="remove(producte.id)">Delete</ion-button>
 
-         <!-- No estoy pudiendo poner la función click xq me da error -->
-     <!--  </ion-item-options> -->
+        
     </ion-card>
   </ion-list>
-  <!-- Falta dirigir al formulario una vez se quiere realizar compra -->
+  
   <ion-footer>
-    <ion-button expand="full" (click)="realizarCompra()" >Realizar compra</ion-button>
+    <ion-button class="btn"  (click)="realizarCompra()" >Realizar compra</ion-button>
   </ion-footer>
 </ion-content>
 
