@@ -20,9 +20,9 @@
       <ion-img *ngIf="photoBase64" src={{photoBase64}}></ion-img>
     </ion-row>
   </ion-grid>
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab class="colorCam" vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="addPhotoToGallery()">
-      <ion-icon  name="camera"></ion-icon>
+      <ion-icon   name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
